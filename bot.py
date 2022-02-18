@@ -9,7 +9,12 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import time
 from selenium import webdriver
+import os
+async def on_ready():
+    await bot.change_presence(status=discord.Status.online)
 
+    await bot.change_presence(activity=discord.Game(name="자가진단 하는 중"))
+    print("봇 이름:",bot.user.name,"봇 아이디:",bot.user.id,"봇 버전:",discord.__version__)
 
 @slash.slash(name="test")
 async def test(ctx: SlashContext):
@@ -71,4 +76,4 @@ async def test(ctx: SlashContext):
     driver.quit
     await ctx.send(file=discord.File('자가진단.png'))
 
-bot.run("ODk4ODYxNjMxOTU2NzQ2Mjkw.YWqYIQ.-3P33IBSLa5ulciGv6WyP1jxubE")  
+bot.run(os.environ['token'])  
