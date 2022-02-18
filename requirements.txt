@@ -1,5 +1,4 @@
 discord.py
 asyncio
 selenium
-webdriver
 discord-py-slash-command
